@@ -1,15 +1,24 @@
+import javax.swing.JOptionPane;
 
 public class Principal {
 	
-	static String[] expresion;
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		expresion= args;
+		String exp= JOptionPane.showInputDialog("Ingrese su expresión regular: "
+				+ "\n usando la siguiente notacion:"
+				+ "\n para Cerradura de Klene: *"
+				+ "\n para cerradura positiva ^"
+				+ "\n para concatenación -");
 		
-		Calculadora.postfijo(expresion);
 		
+		
+		
+		System.out.println(Calculadora.convertir_APostfijo(exp));
+		
+		Calculadora.calculaPosFijo(Calculadora.convertir_APostfijo(exp));
 	}
 
 }

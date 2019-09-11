@@ -1,0 +1,11 @@
+import javax.swing.JOptionPane;
+
+public class Master {
+
+	public static void main(String[] args) {
+		
+		JOptionPane.showInputDialog("Ingrese su expresión regular: ");
+
+	}
+
+}
