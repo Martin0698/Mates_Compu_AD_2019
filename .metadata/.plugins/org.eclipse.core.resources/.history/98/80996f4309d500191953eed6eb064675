@@ -1,13 +1,10 @@
 
-import java.nio.channels.ShutdownChannelGroupException;
 import java.util.Stack;
-
-import javax.swing.JOptionPane;
 
 public class Calculadora {
 	
 	static Stack<Jerarquia> operadores = new Stack<>();
-	static Stack<String> datos= new Stack<>();
+	Stack<String> datos;
 	
 	
 	
@@ -161,11 +158,10 @@ public class Calculadora {
 	
 	
 	
-	public static String calculaPosFijo(String convertir_APostfijo) {
+	public static void calculaPosFijo(String convertir_APostfijo) {
 		// TODO Auto-generated method stub
 		
 		String resultado="";
-		String valor1, valor2;
 		char letra;
 		for(int i=0; i< convertir_APostfijo.length(); i++){
 			letra= convertir_APostfijo.charAt(i);
@@ -175,133 +171,28 @@ public class Calculadora {
 				
 				switch (letra) {
 				case '*':
-					valor1=datos.pop();
-					resultado= resultado+ cerraduraDeKleene(valor1);
+					
 					break;
 				case'+':
 					
-					valor1= datos.pop();
-					valor2=datos.pop();
-					
-					resultado= resultado+ union(valor1, valor2);
 					break;
 				case '^':
-					valor1=datos.pop();
-					resultado= resultado+ cerraduraPositiva(valor1);
+				
 					break;
 				case '-':
-					valor1= datos.pop();
-					valor2=datos.pop();
 					
-					resultado= resultado+ concatenacion(valor1, valor2);
 					break;
 				default:
 					break;
 				}
 			}
-			else{
-				
-				datos.push(String.valueOf(letra));
-				
-			}
-			
-			datos.push(resultado);
 		}
 		
-		return resultado;
 	}
 	
 	
 	
 	
-
-	private static String concatenacion(String valor1, String valor2) {
-		// TODO Auto-generated method stub
-		
-		return valor1 + valor2;
-	}
-
-
-
-
-
-	private static String cerraduraPositiva(String valor1) {
-		
-		String retorno="";
-		int n= Integer.parseInt(JOptionPane.showInputDialog("Cuantas repeticiones desea de la cerradura de kleene para esta palabra: "+ valor1));
-		for(int i=1; i<= n ; i++){
-			
-			retorno+= valor1;
-			
-		}
-		
-		
-		return retorno;
-	}
-
-
-
-
-
-	private static String union(String valor1, String valor2) {
-		// TODO Auto-generated method stub
-		String res= JOptionPane.showInputDialog("Cual de estas opciones desea"
-				+ "\n 1)"+ valor1+
-				"\n 2)"+ valor2+
-				"\n 3)"+valor1+" "+valor2  );
-		
-		String retorno = "";
-		switch (res) {
-		case "1":
-			
-			retorno= valor1;
-			
-			
-		
-		case "2":
-		
-			retorno= valor2;
-			
-			
-			
-		case "3":	
-			
-			retorno= valor1 +valor2;
-			
-		
-			
-		default:
-			res= JOptionPane.showInputDialog("Cual de estas opciones desea: "
-					+ "\n 1)"+ valor1+
-					"\n 2)"+ valor2+
-					"\n 3)"+valor1+" "+valor2  );
-		}
-		
-		return retorno;
-		
-	}
-
-
-
-
-
-	private static String cerraduraDeKleene(String palabra) {
-		
-		String retorno="";
-		int n= Integer.parseInt(JOptionPane.showInputDialog("Cuantas repeticiones desea de la cerradura de kleene para esta palabra: "+ palabra));
-		for(int i=0; i< n ; i++){
-			
-			retorno+= palabra;
-			
-		}
-		
-		
-		return retorno;
-	}
-
-
-
-
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

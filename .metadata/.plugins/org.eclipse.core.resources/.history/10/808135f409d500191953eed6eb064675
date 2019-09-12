@@ -161,10 +161,10 @@ public class Calculadora {
 	
 	
 	
-	public static String calculaPosFijo(String convertir_APostfijo) {
+	public static void calculaPosFijo(String convertir_APostfijo) {
 		// TODO Auto-generated method stub
 		
-		String resultado="";
+		String resultado="", letraAPalabra;
 		String valor1, valor2;
 		char letra;
 		for(int i=0; i< convertir_APostfijo.length(); i++){
@@ -176,24 +176,24 @@ public class Calculadora {
 				switch (letra) {
 				case '*':
 					valor1=datos.pop();
-					resultado= resultado+ cerraduraDeKleene(valor1);
+					resultado= cerraduraDeKleene(valor1);
 					break;
 				case'+':
 					
 					valor1= datos.pop();
 					valor2=datos.pop();
 					
-					resultado= resultado+ union(valor1, valor2);
+					resultado= union(valor1, valor2);
 					break;
 				case '^':
 					valor1=datos.pop();
-					resultado= resultado+ cerraduraPositiva(valor1);
+					resultado= cerraduraPositiva(valor1);
 					break;
 				case '-':
 					valor1= datos.pop();
 					valor2=datos.pop();
 					
-					resultado= resultado+ concatenacion(valor1, valor2);
+					resultado= concatenacion(valor1, valor2);
 					break;
 				default:
 					break;
@@ -208,7 +208,6 @@ public class Calculadora {
 			datos.push(resultado);
 		}
 		
-		return resultado;
 	}
 	
 	
