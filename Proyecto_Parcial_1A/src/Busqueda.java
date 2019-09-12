@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class Busqueda  {
 	
@@ -12,11 +13,11 @@ public class Busqueda  {
 	
 	static int contador_de_archivos=0, contador_de_archivos_contienen_palabra=0;
 	
-	static int lineas_totales=0;
 	
 	
 	
-	public static void buscar(String palabra, File ruta) {
+	
+	public static void buscar(String palabra, File ruta) throws IOException {
 		// TODO Auto-generated method stub
 		File[] lista_archivos = ruta.listFiles();
 		
@@ -29,34 +30,39 @@ public class Busqueda  {
 				coincidencias_en_archivos.add(lista_archivos[i].getName());
 				
 			}
-			else if(lista_archivos[i].getName().contains(".txt")){
-				try {
-					BufferedReader lector = new BufferedReader(new FileReader(lista_archivos[i]));
-					
-					String linea_Leida="";
-					
-					while((linea_Leida= lector.readLine()) != null){
-						
-						lineas_totales++;
-						
-						String[] palabras = linea_Leida.split(" ");
-					
-						for(int i1=0; i1< palabras.length;i1++){
-							
-							if(palabras[i1].contains(palabra)){
-								contador_de_archivos_contienen_palabra++;
-								coincidencias_en_archivos_de_lectura.add(lista_archivos[i1].getName());
-								break;
-							}
-						}
-					}
-				
-				
-				} 
-				catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			else if(lista_archivos[i].getName().endsWith(".txt")){
+				String s1;
+		        String s2;
+		 
+		        // Cargamos el buffer con el contenido del archivo
+		        BufferedReader br = new BufferedReader (new FileReader (lista_archivos[i]));
+		 
+		        // Leemos la primera linea
+		        s1 = br.readLine();
+		 
+		       // System.out.println ("La primera linea del archivo es: " + s1);
+		        //System.out.println ("La linea tiene " + s1.length() + " caracteres");
+		 
+		        System.out.println ();
+		        //System.out.println ("Separando la linea en trozos tenemos las siguientes palabras:");
+		 
+		        int numTokens = 0;
+		        StringTokenizer st = new StringTokenizer (s1);
+		 
+		        // bucle por todas las palabras
+		        while (st.hasMoreTokens())
+		        {
+		            s2 = st.nextToken();
+		            numTokens++;
+		          // System.out.println ("    Palabra " + numTokens + " es: " + s2);
+		            
+		            if(s2.contains(palabra)){
+		            	
+		            	contador_de_archivos_contienen_palabra++;
+		            	coincidencias_en_archivos_de_lectura.add(lista_archivos[i].getName());
+		            	break;
+		            }
+		        }
 			}
 		}
 		
@@ -80,12 +86,5 @@ public class Busqueda  {
 	}
 	
 		
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		
-	}
-
 	
 }
