@@ -1,8 +1,11 @@
+import java.io.File;
+
 import javax.swing.JOptionPane;
+
 
 public class Principal {
 	
-	
+	static String busqueda;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -16,9 +19,20 @@ public class Principal {
 		
 		
 		
-		System.out.println(Calculadora.convertir_APostfijo(exp));
 		
-		Calculadora.calculaPosFijo(Calculadora.convertir_APostfijo(exp));
+		String posfijo=(Calculadora.convertir_APostfijo(exp));
+		
+		System.out.println(posfijo);
+		
+		busqueda= Calculadora.calculaPosFijo(posfijo);
+		
+		System.out.println(busqueda);
+		
+		Busqueda.buscar(busqueda, new File("C:\\Users\\Martin Guevara\\Desktop\\Algoritmos"));
+		
+		Busqueda.imprimeListaArchivo();
+		
+		System.out.println("Espero que haya jalado para tener 100");
 	}
 
 }

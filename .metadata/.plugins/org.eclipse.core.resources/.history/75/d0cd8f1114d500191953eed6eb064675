@@ -1,0 +1,46 @@
+import java.io.File;
+
+public class Busqueda extends File  {
+	
+	public Busqueda(String pathname) {
+		super(pathname);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
+
+	String[] coincidencias_en_archivos;
+	String[] coincidencias_en_archivos_de_lectura;
+	
+	
+	private static void buscar(String Nombre_de_Archivo) {
+		// TODO Auto-generated method stub
+
+		
+	}
+
+	
+	@Override
+	public boolean exists() {
+		// TODO Auto-generated method stub
+		return super.exists();
+	}
+
+
+	
+
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	
+}

@@ -1,0 +1,36 @@
+import java.io.File;
+
+import java.util.ArrayList;
+
+public class Busqueda  {
+	
+	Static ArrayList<String> coincidencias_en_archivos= new ArrayList<>();
+	static ArrayList<String> coincidencias_en_archivos_de_lectura= new ArrayList<>();
+	static 
+	
+	public static void buscar(String Nombre_de_Archivo, File ruta) {
+		// TODO Auto-generated method stub
+		File[] lista_archivos = ruta.listFiles();
+		
+		for(int i=0; i < lista_archivos.length;i++){
+			if(lista_archivos[i].isDirectory()){
+				buscar(Nombre_de_Archivo, lista_archivos[i]);
+			}
+			else if(lista_archivos[i].getName().contains(Nombre_de_Archivo)){
+				
+			}
+		}
+		
+	}
+
+	
+		
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	
+}

@@ -166,6 +166,7 @@ public class Calculadora {
 		
 		String resultado="";
 		String valor1, valor2;
+		
 		char letra;
 		for(int i=0; i< convertir_APostfijo.length(); i++){
 			letra= convertir_APostfijo.charAt(i);
@@ -176,24 +177,28 @@ public class Calculadora {
 				switch (letra) {
 				case '*':
 					valor1=datos.pop();
-					resultado= resultado+ cerraduraDeKleene(valor1);
+					resultado= cerraduraDeKleene(valor1);
+					datos.push(resultado);
 					break;
 				case'+':
 					
 					valor1= datos.pop();
 					valor2=datos.pop();
 					
-					resultado= resultado+ union(valor1, valor2);
+					resultado= union(valor1, valor2);
+					datos.push(resultado);
 					break;
 				case '^':
 					valor1=datos.pop();
-					resultado= resultado+ cerraduraPositiva(valor1);
+					resultado=  cerraduraPositiva(valor1);
+					datos.push(resultado);
 					break;
 				case '-':
 					valor1= datos.pop();
 					valor2=datos.pop();
 					
-					resultado= resultado+ concatenacion(valor1, valor2);
+					resultado= concatenacion(valor1, valor2) ;
+					datos.push(resultado);
 					break;
 				default:
 					break;
@@ -205,10 +210,13 @@ public class Calculadora {
 				
 			}
 			
-			datos.push(resultado);
+			
 		}
-		
-		return resultado;
+		String nvo_resultado = "";
+		for(int i= resultado.length()-1; i>=0; i--){
+			nvo_resultado= nvo_resultado+resultado.charAt(i);
+		}
+		return nvo_resultado;
 	}
 	
 	
