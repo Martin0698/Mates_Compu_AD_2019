@@ -1,4 +1,6 @@
+package CYK_Complete;
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -202,7 +204,7 @@ public class Ventana extends javax.swing.JFrame {
 			JOptionPane.showMessageDialog(null, "Palabra es aceptada por la GLC");
 			
 			
-			System.out.println("---Árbol---------------------------------------------------------- \n");
+			System.out.println("\n ---Árbol---- En Preorden------------------------------------------------------ \n");
 			//genera árbol binario
 			CYK.backtracking(datos[0][datos.length-1], 0, datos.length-1, "S");
 		}
