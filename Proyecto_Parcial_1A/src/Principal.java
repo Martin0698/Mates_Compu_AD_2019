@@ -27,7 +27,7 @@ public class Principal {
 		
 		Busqueda.buscar(busqueda, new File("C:\\Users\\Martin Guevara\\Desktop\\Algoritmos"));
 		
-		Busqueda.imprimeListaArchivo();
+		//Busqueda.imprimeListaArchivo();
 		
 		System.out.println("Espero que haya jalado para tener 100");
 	}

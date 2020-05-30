@@ -1,0 +1,55 @@
+
+public class CYK {
+
+	public static String[][] Matriz = null;
+	
+	
+	public static String[][] llenarMatriz(String[] simbolos){
+		int cont=0;
+		int lim=0;
+		Matriz= new String[simbolos.length][simbolos.length];
+		
+		//Llena la Matriz en la diagonal principal
+		for(int y=0; y< Matriz.length; y++){
+				cont=y;
+				
+			for(int x=0; x< Matriz.length-lim; x++){
+				
+				if(x==y){
+					String prueba = Separador.indexador.get(simbolos[y]).toString();
+					
+					if(Matriz[x][y] != null){
+						String[]  Producciones= Matriz[x][y].split(",");
+						for (int i = 0; i < Producciones.length; i++) {
+							if(Producciones[i].equals(prueba)){
+								break;
+							}
+							else if(i == Producciones.length-1 && !(Producciones[i].equals(prueba))){
+								Matriz[x][y]= Matriz[x][y]+prueba;
+								
+							}
+						}
+					}
+					
+					
+					
+				}
+				else {
+					
+					Matriz[x][y]= y+"";
+				}
+				
+				
+				y++;
+			}
+			lim++;
+			y= cont;
+		}
+		return Matriz;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

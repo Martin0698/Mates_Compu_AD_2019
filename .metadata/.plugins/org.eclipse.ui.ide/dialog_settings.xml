@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\Martin Guevara\Downloads\ChatSockets\ChatSockets"/>
+		<item value="C:\Users\Martin Guevara\Downloads\ChatRSA_v0.1"/>
+		<item value="C:\Users\Martin Guevara\Desktop\Knuth-Morris-Al"/>
+		<item value="C:\Users\Martin Guevara\Downloads\Sistema de cifrado RSA\Sistema de cifrado RSA"/>
+		<item value="C:\Users\Martin Guevara\Downloads\RSA-CHAT-master\RSA-CHAT-master\RSA CHAT"/>
+		<item value="C:\Users\Martin Guevara\Downloads\Chat-master\Chat-master"/>
+		<item value="C:\Users\Martin Guevara\Downloads\GLC-to-FNC-master"/>
+		<item value="C:\Users\Martin Guevara\Downloads\CYK-implementation-JAVA-master"/>
+		<item value="C:\Users\Martin Guevara\Downloads\CYK-Java-master"/>
+	</list>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+</section>

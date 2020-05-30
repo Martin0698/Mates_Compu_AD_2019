@@ -17,9 +17,10 @@ public class Busqueda  {
 	
 	
 	
-	public static void buscar(String palabra, File ruta) throws IOException {
+	public static boolean buscar(String palabra, File ruta) throws IOException {
 		// TODO Auto-generated method stub
 		File[] lista_archivos = ruta.listFiles();
+		boolean flag = false;
 		
 		for(int i=0; i < lista_archivos.length;i++){
 			if(lista_archivos[i].isDirectory()){
@@ -28,7 +29,7 @@ public class Busqueda  {
 			else if(lista_archivos[i].getName().contains(palabra)){
 				contador_de_archivos++;
 				coincidencias_en_archivos.add(lista_archivos[i].getName());
-				
+				flag= true;
 			}
 			else if(lista_archivos[i].getName().endsWith(".txt")){
 				String s1;
@@ -48,7 +49,9 @@ public class Busqueda  {
 		 
 		        int numTokens = 0;
 		        StringTokenizer st = new StringTokenizer (s1);
-		 
+		        
+		      
+						
 		        // bucle por todas las palabras
 		        while (st.hasMoreTokens())
 		        {
@@ -57,14 +60,17 @@ public class Busqueda  {
 		          // System.out.println ("    Palabra " + numTokens + " es: " + s2);
 		            
 		            if(s2.contains(palabra)){
-		            	
+		            	flag = true;
 		            	contador_de_archivos_contienen_palabra++;
 		            	coincidencias_en_archivos_de_lectura.add(lista_archivos[i].getName());
 		            	break;
 		            }
+		            
+		            
 		        }
 			}
 		}
+		return flag;
 		
 	}
 

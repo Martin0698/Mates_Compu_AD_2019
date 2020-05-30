@@ -1,0 +1,39 @@
+
+public class CYK {
+
+public static String[][] Matriz;
+	
+	
+	public static String[][] llenarMatriz(String[] simbolos){
+		int cont=0;
+		int lim=0;
+		Matriz= new String[simbolos.length][simbolos.length];
+		
+		//Llena la Matriz principal
+		for(int y=0; y< Matriz.length; y++){
+				cont=y;
+			for(int x=0; x< Matriz.length-lim; x++){
+				
+				if(x==y){
+					Matriz[x][y] = Separador.indexador.get(simbolos[y]).toString();
+				}
+				else {
+					Matriz[x][y]= "("+y+","+x+")";
+				}
+				
+				
+				y++;
+			}
+			lim++;
+			y= cont;
+		}
+		
+		return Matriz;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,6 +1,7 @@
 package CYK_Complete;
 import java.io.BufferedReader;
 
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,14 +14,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import java.awt.*;
+import javax.swing.*;
 /**
  *
  * @author Martin Guevara
  */
 
-public class Ventana extends javax.swing.JFrame {
 
+public class Ventana extends javax.swing.JFrame {
     /**
      * Creates new form Ventana
      */
@@ -156,7 +157,8 @@ public class Ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { 
+    	
         try {
             // TODO add your handling code here:
         	System.out.println("------Gramática------------------------------- \n");
